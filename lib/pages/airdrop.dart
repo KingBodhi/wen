@@ -11,6 +11,7 @@ class Airdrop extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    bool isDarkMode = Theme.of(context).brightness == Brightness.dark;
     // Determine if the device is a desktop based on screen width.
     bool isDesktop = MediaQuery.of(context).size.width > 600;
     // Set padding dynamically based on the screen width.
@@ -49,18 +50,9 @@ class Airdrop extends StatelessWidget {
                           Padding(
                             padding: EdgeInsets.all(8.0),
                             child: Text(
-                              'AIRDROP',
+                              'A Monumental Opportunity Awaits\n 2.5 Billion Token Airdrop',
                               style: TextStyle(
                                   fontSize: 24, fontWeight: FontWeight.bold),
-                              textAlign: TextAlign.center,
-                            ),
-                          ),
-                          Padding(
-                            padding: EdgeInsets.all(8.0),
-                            child: Text(
-                              '2.5 Billion Token Airdrop\n\nA Monumental Opportunity Awaits',
-                              style: TextStyle(
-                                  fontSize: 20, fontWeight: FontWeight.w500),
                               textAlign: TextAlign.center,
                             ),
                           ),
@@ -84,7 +76,7 @@ class Airdrop extends StatelessWidget {
                           Padding(
                             padding: EdgeInsets.all(8.0),
                             child: Text(
-                              'Eligibility: To be eligible for the airdrop, users must sign up, verify their account, and engage with our community through various channels. Prior participants and supporters will be considered automatically. For new members, details regarding the sign-up process will be available on our platform.',
+                              'Eligibility: To be eligible for the airdrop, users must simply register their wallet address. Earn additional rewards for engagement with our community through various channels. Prior participants and supporters will be considered automatically. For new members.',
                               style: TextStyle(fontSize: 16),
                               textAlign: TextAlign.center,
                             ),
@@ -92,7 +84,7 @@ class Airdrop extends StatelessWidget {
                           Padding(
                             padding: EdgeInsets.all(8.0),
                             child: Text(
-                              'Distribution: Tokens will be distributed directly to the wallets of eligible community members. The distribution process is designed to be transparent and fair, ensuring that every participant receives their share without any discrepancies.',
+                              'Distribution: Tokens will be distributed directly to the wallets of eligible community members. The distribution process is designed to be transparent and fair, ensuring that every participant receives a share.',
                               style: TextStyle(fontSize: 16),
                               textAlign: TextAlign.center,
                             ),
@@ -105,10 +97,24 @@ class Airdrop extends StatelessWidget {
                               textAlign: TextAlign.center,
                             ),
                           ),
+                          SizedBox(height: 10),
+                          ElevatedButton(
+                            onPressed: () {
+                              // Submit email action goes here
+                            },
+                            child: Text('REGISTER WALLET'),
+                            style: ElevatedButton.styleFrom(
+                              foregroundColor:
+                                  isDarkMode ? Colors.black : Colors.white,
+                              backgroundColor:
+                                  isDarkMode ? Colors.orange : Colors.orange,
+                            ),
+                          ),
+                          SizedBox(height: 10),
                           Padding(
                             padding: EdgeInsets.all(8.0),
                             child: Text(
-                              'Join Us Today\n\nSign up, engage, and secure your spot in one of the largest token airdrops in the crypto community. Be a part of Wen Moon Wen Lambo’s journey to redefine what it means to be a community-driven project.',
+                              'Sign up, engage, and secure your spot in one of the largest token airdrops in the crypto community. Be a part of Wen Moon Wen Lambo’s journey to redefine what it means to be a community-driven project.',
                               style: TextStyle(fontSize: 16),
                               textAlign: TextAlign.center,
                             ),
