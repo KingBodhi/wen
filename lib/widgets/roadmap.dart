@@ -93,9 +93,7 @@ class InfoContainer extends StatelessWidget {
           Text(
             item['title']!,
             style: TextStyle(
-              color: theme.brightness == Brightness.dark
-                  ? Colors.white
-                  : Colors.white,
+              color: Colors.white,
               fontSize: 16,
             ),
             textAlign: TextAlign.center,
@@ -103,7 +101,9 @@ class InfoContainer extends StatelessWidget {
           SizedBox(height: 12),
           ElevatedButton(
             onPressed: () {
-              // Button press handler
+              // Navigate based on the button text
+              String routeName = '/' + item['buttonText']!.toLowerCase();
+              Navigator.pushNamed(context, routeName);
             },
             child: Text(
               item['buttonText']!,

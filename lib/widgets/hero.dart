@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class HeroWidget extends StatelessWidget {
   final PageController pageController;
@@ -32,7 +33,6 @@ class HeroWidget extends StatelessWidget {
         controller: pageController,
         children: <Widget>[
           Center(
-            // Center the column in the PageView
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.center,
@@ -40,33 +40,35 @@ class HeroWidget extends StatelessWidget {
                 Text(
                   'Wen Moon',
                   style: TextStyle(
-                    fontSize: 48, // Increased font size for 'Wen Moon'
+                    fontSize: 48,
                     fontWeight: FontWeight.bold,
                     color: isDarkMode ? Colors.white : Colors.black,
                   ),
                 ),
-                SizedBox(
-                    height: 30), // Increased spacing to balance larger text
+                SizedBox(height: 30),
                 Text(
                   'Wen Lambo',
                   style: TextStyle(
-                    fontSize: 48, // Increased font size for 'Wen Lambo'
+                    fontSize: 48,
                     fontWeight: FontWeight.bold,
                     color: isDarkMode ? Colors.white : Colors.black,
                   ),
                 ),
-                SizedBox(height: 40), // Increased space before the button
+                SizedBox(height: 40),
                 ElevatedButton(
-                  onPressed: () {
-                    // Add your action for the button press here
+                  onPressed: () async {
+                    const url = 'https://luminex.io/runes/mint';
+                    if (await canLaunchUrl(Uri.parse(url))) {
+                      await launchUrl(Uri.parse(url));
+                    } else {
+                      throw 'Could not launch $url';
+                    }
                   },
                   child: Text('MINT'),
                   style: ElevatedButton.styleFrom(
                     foregroundColor: Colors.white,
-                    backgroundColor: isDarkMode ? Colors.orange : Colors.orange,
-                    padding: EdgeInsets.symmetric(
-                        horizontal: 60,
-                        vertical: 25), // Larger padding for the button
+                    backgroundColor: Colors.orange,
+                    padding: EdgeInsets.symmetric(horizontal: 60, vertical: 25),
                   ),
                 ),
               ],

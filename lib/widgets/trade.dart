@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class Trade extends StatelessWidget {
   const Trade({Key? key}) : super(key: key);
@@ -66,7 +67,7 @@ class Trade extends StatelessWidget {
         Padding(
           padding: const EdgeInsets.all(16.0),
           child: Text(
-            'WEN 🚀\n\nBUY, SELL, AND TRADE BITCOIN INSCRIBED WEN 🚀 ON LUMINEX',
+            'WEN 🚀\n\nBUY, SELL, AND TRADE BITCOIN INSCRIBED WEN 🚀 ON MAGIC EDEN',
             style: TextStyle(
               fontWeight: FontWeight.bold,
               fontSize: 16,
@@ -75,17 +76,21 @@ class Trade extends StatelessWidget {
           ),
         ),
         TextButton(
-          onPressed: () {
-            // Call to action goes here
+          onPressed: () async {
+            const url = 'https://magiceden.io/runes';
+            if (await canLaunchUrl(Uri.parse(url))) {
+              await launchUrl(Uri.parse(url));
+            } else {
+              throw 'Could not launch $url';
+            }
           },
-          child: Text('LUMINEX DEX'),
+          child: Text('MAGIC EDEN'),
           style: TextButton.styleFrom(
             foregroundColor: theme.brightness == Brightness.dark
                 ? Colors.black
                 : Colors.white, // Text color based on theme
-            backgroundColor: theme.brightness == Brightness.dark
-                ? Colors.orange
-                : Colors.orange, // Background color based on theme
+            backgroundColor:
+                Colors.orange, // Consistent background color for clarity
           ),
         ),
       ],
