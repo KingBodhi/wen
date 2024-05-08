@@ -22,7 +22,7 @@ class JoinUs extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           Text(
-            'JOIN THE ALPHA COMMUNITY',
+            'JOIN THE WEN 🚀 COMMUNITY',
             textAlign: TextAlign.center,
             style: TextStyle(
               fontWeight: FontWeight.bold,
