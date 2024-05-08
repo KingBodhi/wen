@@ -1,23 +1,21 @@
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class JoinUs extends StatelessWidget {
   const JoinUs({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    // Determine the theme mode
     bool isDarkMode = Theme.of(context).brightness == Brightness.dark;
-    // Check if the device is a desktop
     bool isDesktop = MediaQuery.of(context).size.width > 600;
 
-    // Conditional padding for desktop
     EdgeInsets padding = isDesktop
         ? const EdgeInsets.symmetric(horizontal: 100.0, vertical: 16)
         : const EdgeInsets.all(16);
 
     return Container(
-      color: Colors.orange, // Set background color
-      padding: padding, // Use conditional padding
+      color: Colors.orange,
+      padding: padding,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
@@ -25,10 +23,7 @@ class JoinUs extends StatelessWidget {
             'JOIN THE WEN 🚀 COMMUNITY',
             textAlign: TextAlign.center,
             style: TextStyle(
-              fontWeight: FontWeight.bold,
-              fontSize: 20,
-              color: Colors.white, // Text visibility on background
-            ),
+                fontWeight: FontWeight.bold, fontSize: 20, color: Colors.white),
           ),
           SizedBox(height: 16),
           Padding(
@@ -37,20 +32,12 @@ class JoinUs extends StatelessWidget {
               decoration: InputDecoration(
                 labelText: 'EMAIL',
                 enabledBorder: OutlineInputBorder(
-                  borderSide: BorderSide(color: Colors.white), // Normal border
-                ),
+                    borderSide: BorderSide(color: Colors.white)),
                 focusedBorder: OutlineInputBorder(
-                  borderSide: BorderSide(
-                      color: Colors.white,
-                      width: 2.0), // Border when TextField is focused
-                ),
-                labelStyle: TextStyle(
-                  color: Colors.white, // For better visibility
-                ),
+                    borderSide: BorderSide(color: Colors.white, width: 2.0)),
+                labelStyle: TextStyle(color: Colors.white),
               ),
-              style: TextStyle(
-                color: Colors.white, // Text color inside the text field
-              ),
+              style: TextStyle(color: Colors.white),
             ),
           ),
           SizedBox(height: 16),
@@ -70,20 +57,35 @@ class JoinUs extends StatelessWidget {
             children: [
               IconButton(
                 icon: Icon(Icons.discord, color: Colors.white),
-                onPressed: () {
-                  // Discord action goes here
+                onPressed: () async {
+                  const url = 'https://discord.gg/9P2ahtxV';
+                  if (await canLaunchUrl(Uri.parse(url))) {
+                    await launchUrl(Uri.parse(url));
+                  } else {
+                    throw 'Could not launch $url';
+                  }
                 },
               ),
               IconButton(
                 icon: Icon(Icons.close, color: Colors.white),
-                onPressed: () {
-                  // Close action goes here
+                onPressed: () async {
+                  const url = 'https://twitter.com/wenrunes';
+                  if (await canLaunchUrl(Uri.parse(url))) {
+                    await launchUrl(Uri.parse(url));
+                  } else {
+                    throw 'Could not launch $url';
+                  }
                 },
               ),
               IconButton(
                 icon: Icon(Icons.send, color: Colors.white),
-                onPressed: () {
-                  // Send action goes here
+                onPressed: () async {
+                  const url = 'https://t.me/wenrunes';
+                  if (await canLaunchUrl(Uri.parse(url))) {
+                    await launchUrl(Uri.parse(url));
+                  } else {
+                    throw 'Could not launch $url';
+                  }
                 },
               ),
             ],
@@ -99,7 +101,6 @@ void main() {
     home: Scaffold(body: const JoinUs()),
     theme: ThemeData.light(),
     darkTheme: ThemeData.dark(),
-    themeMode:
-        ThemeMode.system, // Adjust based on device settings or provide a toggle
+    themeMode: ThemeMode.system,
   ));
 }
