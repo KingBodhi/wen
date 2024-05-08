@@ -60,7 +60,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
                 TextButton(
                     onPressed: () =>
                         Navigator.pushNamed(context, '/tokenomics'),
-                    child: Text("tokenomics",
+                    child: Text("Tokenomics",
                         style: TextStyle(
                             color: themeManager.isDarkMode
                                 ? Colors.white
