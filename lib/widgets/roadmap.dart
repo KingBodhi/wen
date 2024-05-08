@@ -55,7 +55,7 @@ class Roadmap extends StatelessWidget {
         'buttonText': 'Meetup',
       },
       {
-        'title': '2.5 BILLION WEN Airdrop',
+        'title': '2.5 Billion WEN 🚀 Airdrop',
         'buttonText': 'Airdrop',
       },
     ];
