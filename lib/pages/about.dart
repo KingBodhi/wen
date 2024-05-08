@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:wen/widgets/drawer.dart';
 import '../widgets/appbar.dart';
+import '../widgets/joinus.dart';
 import '../widgets/footer.dart';
 
 class About extends StatelessWidget {
@@ -37,7 +38,7 @@ class About extends StatelessWidget {
                       padding: EdgeInsets.symmetric(
                           horizontal: horizontalPadding, vertical: 16),
                       child: Image.asset(
-                        'assets/wenn.png',
+                        'assets/about.png',
                         fit: BoxFit.cover,
                       ),
                     ),
@@ -120,6 +121,7 @@ class About extends StatelessWidget {
                               textAlign: TextAlign.center,
                             ),
                           ),
+                          JoinUs(),
                         ],
                       ),
                     ),

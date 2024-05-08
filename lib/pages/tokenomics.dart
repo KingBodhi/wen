@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:wen/widgets/drawer.dart';
 import '../widgets/appbar.dart';
+import '../widgets/joinus.dart';
 import '../widgets/footer.dart';
 
 class Tokenomics extends StatelessWidget {
@@ -37,7 +38,7 @@ class Tokenomics extends StatelessWidget {
                       padding: EdgeInsets.symmetric(
                           horizontal: horizontalPadding, vertical: 16),
                       child: Image.asset(
-                        'assets/wenn.png', // Ensure you have 'winn.png' in your assets directory and listed in pubspec.yaml
+                        'assets/chart.png', // Ensure you have 'winn.png' in your assets directory and listed in pubspec.yaml
                         fit: BoxFit.cover,
                       ),
                     ),
@@ -119,6 +120,7 @@ class Tokenomics extends StatelessWidget {
                               textAlign: TextAlign.center,
                             ),
                           ),
+                          JoinUs(),
                         ],
                       ),
                     ),

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:wen/widgets/drawer.dart';
 import '../widgets/appbar.dart';
+import '../widgets/joinus.dart';
 import '../widgets/footer.dart';
 
 class Airdrop extends StatelessWidget {
@@ -112,6 +113,7 @@ class Airdrop extends StatelessWidget {
                               textAlign: TextAlign.center,
                             ),
                           ),
+                          JoinUs(),
                         ],
                       ),
                     ),
