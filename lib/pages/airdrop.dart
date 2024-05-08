@@ -38,7 +38,7 @@ class Airdrop extends StatelessWidget {
                       padding: EdgeInsets.symmetric(
                           horizontal: horizontalPadding, vertical: 16),
                       child: Image.asset(
-                        'assets/wenn.png',
+                        'assets/airdrop.png',
                         fit: BoxFit.cover,
                       ),
                     ),
